@@ -23,26 +23,7 @@ pipeline {
                  }
            }
         }
-        stage('Build Docker image'){
-            steps {
-                sh 'docker build -t aishwaryamalviya/maven-hello-world_master:${BUILD_NUMBER} .'
-            }
-        }
-
-        stage('Docker Login'){
-
-            steps {
-                 withCredentials([string(credentialsId: 'DockerID', variable: 'Dockerpwd')]) {
-                   sh "docker login -u aishwaryamalviya -p ${Dockerpwd}"
-                }
-            }
-        }
-
-        stage('Docker Push'){
-            steps {
-                sh 'docker push aishwaryamalviya/maven-hello-world_master:${BUILD_NUMBER}'
-            }
-        }
+        
 
         stage('Archving') { 
             steps {
