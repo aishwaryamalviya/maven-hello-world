@@ -3,6 +3,6 @@
 #ENTRYPOINT ["java","-jar","/my-java-app-1.0-SNAPSHOT.jar"]
 FROM java:8
 COPY ./my-app/target/*.jar /
-ADD ./my-app/target/*.jar /usr/local/bin
+ADD ./my-app/target/*.jar /usr/local/bin/
 EXPOSE 8080
 CMD java -jar my-app-1.0-SNAPSHOT.jar
