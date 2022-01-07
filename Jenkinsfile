@@ -17,11 +17,6 @@ pipeline {
             }
         }
         
-        stage('Archving') { 
-            steps {
-                 archiveArtifacts '**/target/*.jar'
-            }
-        }
         
     }
 }
