@@ -7,12 +7,12 @@ pipeline {
         stage('Compile and Clean') { 
             steps {
 
-                sh "mvn clean compile"
+                sh "mvn -f my-app/pom.xml clean compile"
             }
         }
         stage('Test') { 
             steps {
-                sh "mvn test site"
+                sh "mvn -f my-app/pom.xml test site"
             }
             
              post {
@@ -24,19 +24,19 @@ pipeline {
 
         stage('deploy') { 
             steps {
-                sh "mvn package"
+                sh "mvn -f my-app/pom.xml package"
             }
         }
         stage('SonarQube analysis')  {
             steps {
                  withSonarQubeEnv('sonarqube-8.9.6') {
-                   sh 'mvn sonar:sonar'
+                   sh 'mvn -f my-app/pom.xml sonar:sonar'
                  }
            }
         }
         stage('Build Docker image'){
             steps {
-                sh 'docker build -t aishwaryamalviya/maven-hello-world_qa:${BUILD_NUMBER} .'
+                sh 'docker build -t aishwaryamalviya/maven-hello-world_master:${BUILD_NUMBER} .'
             }
         }
 
@@ -51,7 +51,7 @@ pipeline {
 
         stage('Docker Push'){
             steps {
-                sh 'docker push aishwaryamalviya/maven-hello-world_qa:${BUILD_NUMBER}'
+                sh 'docker push aishwaryamalviya/maven-hello-world_master:${BUILD_NUMBER}'
             }
         }
 
