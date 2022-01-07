@@ -16,15 +16,7 @@ pipeline {
                 sh "mvn -f my-app/pom.xml package"
             }
         }
-        stage('SonarQube analysis')  {
-            steps {
-                 withSonarQubeEnv('sonarqube-8.9.6') {
-                   sh 'mvn -f my-app/pom.xml sonar:sonar'
-                 }
-           }
-        }
         
-
         stage('Archving') { 
             steps {
                  archiveArtifacts '**/target/*.jar'
