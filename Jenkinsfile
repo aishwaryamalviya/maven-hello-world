@@ -10,18 +10,7 @@ pipeline {
                 sh "mvn -f my-app/pom.xml clean compile"
             }
         }
-        stage('Test') { 
-            steps {
-                sh "mvn -f my-app/pom.xml test site"
-            }
-            
-            # post {
-            #    always {
-            #        junit allowEmptyResults: true, testResults: 'target/surefire-reports/*.xml'   
-             #   }
-            #}     
-        }
-
+        
         stage('deploy') { 
             steps {
                 sh "mvn -f my-app/pom.xml package"
