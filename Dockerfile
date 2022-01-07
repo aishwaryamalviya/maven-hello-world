@@ -1,3 +1,3 @@
 FROM openjdk:8
-ADD target/my-app-1.0-SNAPSHOT-shaded.jar my-app-1.0-SNAPSHOT.jar
+ADD target/my-app-1.0-SNAPSHOT.jar my-app-1.0-SNAPSHOT.jar
 ENTRYPOINT ["java","-jar","/my-java-app-1.0-SNAPSHOT.jar"]
