@@ -15,11 +15,11 @@ pipeline {
                 sh "mvn -f my-app/pom.xml test site"
             }
             
-             post {
-                always {
-                    junit allowEmptyResults: true, testResults: 'target/surefire-reports/*.xml'   
-                }
-            }     
+            # post {
+            #    always {
+            #        junit allowEmptyResults: true, testResults: 'target/surefire-reports/*.xml'   
+             #   }
+            #}     
         }
 
         stage('deploy') { 
