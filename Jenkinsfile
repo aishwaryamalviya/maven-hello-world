@@ -7,12 +7,12 @@ pipeline {
         stage('Compile and Clean') { 
             steps {
 
-                sh "mvn clean compile"
+                sh "mvn -f my-app/pom.xml clean compile"
             }
         }
         stage('Test') { 
             steps {
-                sh "mvn test site"
+                sh "mvn -f my-app/pom.xml test site"
             }
             
              post {
@@ -24,7 +24,7 @@ pipeline {
 
         stage('deploy') { 
             steps {
-                sh "mvn package"
+                sh "mvn -f my-app/pom.xml package"
             }
         }
         stage('SonarQube analysis')  {
