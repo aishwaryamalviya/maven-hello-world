@@ -16,6 +16,11 @@ pipeline {
                 sh "mvn -f my-app/pom.xml package"
             }
         }
+         stage('Archving') { 
+            steps {
+                 archiveArtifacts '**/target/*.jar'
+            }
+        }
         stage('SonarQube analysis')  {
             steps {
                  withSonarQubeEnv('sonarqube-8.9.6') {
@@ -44,11 +49,7 @@ pipeline {
             }
         }
 
-        stage('Archving') { 
-            steps {
-                 archiveArtifacts '**/target/*.jar'
-            }
-        }
+       
         
     }
 }
