@@ -19,7 +19,7 @@ pipeline {
         stage('SonarQube analysis')  {
             steps {
                  withSonarQubeEnv('sonarqube-8.9.6') {
-                   sh 'mvn sonar:sonar'
+                   sh 'mvn -f my-app/pom.xml sonar:sonar'
                  }
            }
         }
