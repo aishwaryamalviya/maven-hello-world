@@ -30,7 +30,7 @@ pipeline {
         }
         stage('Build Docker image'){
             steps {
-                sh 'docker build -t aishwaryamalviya/maven-hello-world_master:${BUILD_NUMBER} .'
+                sh 'docker build -t aishwaryamalviya/maven-hello-world_dev:${BUILD_NUMBER} .'
             }
         }
 
@@ -45,7 +45,7 @@ pipeline {
 
         stage('Docker Push'){
             steps {
-                sh 'docker push aishwaryamalviya/maven-hello-world_master:${BUILD_NUMBER}'
+                sh 'docker push aishwaryamalviya/maven-hello-world_dev:${BUILD_NUMBER}'
             }
         }
 
