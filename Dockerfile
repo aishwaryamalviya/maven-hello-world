@@ -1,4 +1,4 @@
-#FROM openjdk:8
+#FROM openjdk:8 old
 #ADD target/my-app-1.0-SNAPSHOT.jar my-app-1.0-SNAPSHOT.jar
 #ENTRYPOINT ["java","-jar","/my-java-app-1.0-SNAPSHOT.jar"]
 FROM java:8
