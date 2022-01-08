@@ -10,7 +10,12 @@ pipeline {
                 sh "mvn -f my-app/pom.xml clean compile"
             }
         }
-        
+        stage('email notification') { 
+            steps {
+                mail bcc: '', body: '''Hi welcome to jenkins email alerts
+                deploy started''', cc: '', from: '', replyTo: '', subject: 'jenkins job', to: 'krishaaish21@gmail.com'
+            }
+        }
         stage('deploy') { 
             steps {
                 sh "mvn -f my-app/pom.xml package"
