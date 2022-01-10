@@ -1,17 +1,17 @@
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
+//import org.openqa.selenium.firefox.FirefoxDriver;
 //comment the above line and uncomment below line to use Chrome
-//import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 public class SeleniumTest {
 
 
     public static void main(String[] args) {
         // declaration and instantiation of objects/variables
-    	System.setProperty("webdriver.gecko.driver","C://Users/AishwaryaM2/Downloads/geckodriver.exe");
-		WebDriver driver = new FirefoxDriver();
+    	//System.setProperty("webdriver.gecko.driver","C://Users/AishwaryaM2/Downloads/geckodriver.exe");
+		//WebDriver driver = new FirefoxDriver();
 		//comment the above 2 lines and uncomment below 2 lines to use Chrome
-		//System.setProperty("webdriver.chrome.driver","G:\\chromedriver.exe");
-		//WebDriver driver = new ChromeDriver();
+		System.setProperty("webdriver.chrome.driver","C://Users/AishwaryaM2/Downloads/chromedriver.exe");
+		WebDriver driver = new ChromeDriver();
     	
         String baseUrl = "http://demo.guru99.com/test/newtours/";
         String expectedTitle = "Hello World";
