@@ -18,12 +18,12 @@ pipeline {
         }
         stage('email notification') { 
             steps {
-                emailext attachmentsPattern: '**/emailable-report.html', body: '''Hi,
-                Could you please approved stage for the deployment...
-
-                Thanks & Regards,
-                Aish
-                ''', subject: 'Selenium Test Reports', to: 'krishaaish21@gmail.com'
+                emailext attachLog: false, 
+                attachmentsPattern: '**/*.html',
+                from: 'krishaaish@gmail.com',
+                body: 'Test Message',
+                subject: 'Test Subject',
+                to: 'krishaaish21@gmail.com'
             }
         }
         stage('deploy') { 
