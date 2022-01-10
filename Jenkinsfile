@@ -22,7 +22,10 @@ pipeline {
                 emailext attachmentsPattern: '**/emailable-report.html', body: '''Hi ,
                 please approve it.''', subject: 'Selenium test report', to: 'krishaaish21@gmail.com'
             }
-        }              
+        }   
+        stage('approval') {
+               input "Deploy to prod?"
+        }
         stage('deploy') { 
             steps {
                 sh "mvn -f my-app/pom.xml package"
