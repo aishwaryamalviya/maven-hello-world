@@ -20,7 +20,7 @@ pipeline {
         stage('email notification') { 
             steps {             
                 emailext ( 
-                    attachmentsPattern: '**/*.html',
+                    attachmentsPattern: '**/emailable-report.html',
                     from: 'krishaaish21@gmail.com',
                     body: 'Test Message',
                     subject: 'Test Subject',
