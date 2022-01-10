@@ -18,8 +18,12 @@ pipeline {
         }
         stage('email notification') { 
             steps {
-                mail bcc: '', body: '''Hi welcome to jenkins email alerts
-                deploy started''', cc: '', from: '', replyTo: '', subject: 'jenkins job', to: 'krishaaish21@gmail.com'
+                emailext attachmentsPattern: '**/emailable-report.html', body: '''Hi,
+                Could you please approved stage for the deployment...
+
+                Thanks & Regards,
+                Aish
+                ''', subject: 'Selenium Test Reports', to: 'krishaaish21@gmail.com'
             }
         }
         stage('deploy') { 
