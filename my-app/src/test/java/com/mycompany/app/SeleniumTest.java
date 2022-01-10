@@ -1,37 +1,41 @@
-package com.mycompany.app;
-import java.util.*;
-import io.github.bonigarcia.wdm.WebDriverManager;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeTest;
-import org.testng.annotations.Listeners;
-import org.testng.annotations.Test;
- 
-@Listeners({util.Listener.class})
-class FirstTestScriptUsingWebDriver {
-   public static WebDriver driver = null;
-   @BeforeTest
-   public void setUp() throws Exception {
-       WebDriverManager.chromedriver().setup();
-       driver=new ChromeDriver();
-   }
-    @Test
-   public void firstTestCase() {
-       try {
-           System.out.println("Logging into Lambda Test Sign Up Page");
-           driver.get("https://accounts.lambdatest.com/register");
-           WebElement pageHeader= driver.findElement(By.xpath("//a[text()='Sign In']"));
-           pageHeader.click();
-           System.out.println("Clicked on the Sign In Button.");
-       } catch (Exception e) {
-       }
-   }
-   @AfterTest
-   public void closeBrowser() {
-       driver.close();
-       System.out.println("Hello World");
-   }
+import org.openqa.selenium.firefox.FirefoxDriver;
+//comment the above line and uncomment below line to use Chrome
+//import org.openqa.selenium.chrome.ChromeDriver;
+public class SeleniumTest {
+
+
+    public static void main(String[] args) {
+        // declaration and instantiation of objects/variables
+    	System.setProperty("webdriver.gecko.driver","C:\\geckodriver.exe");
+		WebDriver driver = new FirefoxDriver();
+		//comment the above 2 lines and uncomment below 2 lines to use Chrome
+		//System.setProperty("webdriver.chrome.driver","G:\\chromedriver.exe");
+		//WebDriver driver = new ChromeDriver();
+    	
+        String baseUrl = "http://demo.guru99.com/test/newtours/";
+        String expectedTitle = "Hello World";
+        String actualTitle = "Hello World";
+
+        // launch Fire fox and direct it to the Base URL
+        driver.get(baseUrl);
+
+        // get the actual value of the title
+        actualTitle = driver.getTitle();
+
+        /*
+         * compare the actual title of the page with the expected one and print
+         * the result as "Passed" or "Failed"
+         */
+        if (actualTitle.contentEquals(expectedTitle)){
+            System.out.println("Test Passed!");
+        } else {
+            System.out.println("Test Failed");
+        }
+       
+        //close Fire fox
+        driver.close();
+       
+    }
+
 }
