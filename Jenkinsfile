@@ -24,8 +24,10 @@ pipeline {
             }
         }   
         stage('approval') {
+             steps { 
                input "Deploy to prod?"
-        }
+          }
+        } 
         stage('deploy') { 
             steps {
                 sh "mvn -f my-app/pom.xml package"
