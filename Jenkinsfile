@@ -18,14 +18,14 @@ pipeline {
         }
         stage('email notification') { 
             steps {
+                stage('email notification') { 
+            steps {
                 emailext attachLog: false, 
                 attachmentsPattern: '**/*.html',
-                from: 'krishaaish@gmail.com',
-                body: 'Test Message',
-                subject: 'Test Subject',
-                to: 'krishaaish21@gmail.com'
+                mail bcc: '', body: '''Hi welcome to jenkins email alerts
+                deploy started''', cc: '', from: '', replyTo: '', subject: 'jenkins job', to: 'krishaaish21@gmail.com'              
             }
-        }
+        }              
         stage('deploy') { 
             steps {
                 sh "mvn -f my-app/pom.xml package"
