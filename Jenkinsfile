@@ -19,12 +19,13 @@ pipeline {
         
         stage('email notification') { 
             steps {             
-               emailext attachLog: false, 
-               attachmentsPattern: '**/*.html',
-               from: 'krishaaish21@gmail.com',
-               body: 'Test Message',
-               subject: 'Test Subject',
-               to: 'krishaaish21@gmail.com'         
+                emailext ( 
+                    attachmentsPattern: '**/*.html',
+                    from: 'krishaaish21@gmail.com',
+                    body: 'Test Message',
+                    subject: 'Test Subject',
+                    to: 'krishaaish21@gmail.com'    
+                    )
             }
         }              
         stage('deploy') { 
