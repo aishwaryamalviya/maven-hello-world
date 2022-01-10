@@ -7,7 +7,7 @@ public class SeleniumTest {
 
     public static void main(String[] args) {
         // declaration and instantiation of objects/variables
-    	System.setProperty("webdriver.gecko.driver","C:\\Users\AishwaryaM2\Downloads\geckodriver-v0.30.0-win64\geckodriver.exe");
+    	System.setProperty("webdriver.gecko.driver","Desktop\geckodriver.exe");
 		WebDriver driver = new FirefoxDriver();
 		//comment the above 2 lines and uncomment below 2 lines to use Chrome
 		//System.setProperty("webdriver.chrome.driver","G:\\chromedriver.exe");
